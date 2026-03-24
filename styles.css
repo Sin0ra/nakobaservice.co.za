@@ -86,7 +86,13 @@ nav a:hover{
 /* NAV SYSTEM */
 
 .nav-menu{
-  display:flex;
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:white;
+  display:none;
+  z-index:999;
 }
 
 .nav-btn{
@@ -100,6 +106,8 @@ nav a:hover{
   flex-direction:column;
   cursor:pointer;
   gap:5px;
+  position:relative;
+  z-index:1001;
 }
 
 .hamburger span{

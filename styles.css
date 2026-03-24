@@ -91,9 +91,7 @@ nav a:hover{
   left:0;
   width:100%;
   background:white;
- max-height:0;
-overflow:hidden;
-transition:0.3s ease;
+  display:none;
   z-index:999;
 }
 

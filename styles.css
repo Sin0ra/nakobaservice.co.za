@@ -91,7 +91,7 @@ nav a:hover{
   left:0;
   width:100%;
   background:white;
-  display:none;
+  display:flex;
   z-index:999;
 }
 
@@ -370,10 +370,6 @@ form textarea {
     display:flex;
   }
 
-  .nav-btn{
-    display:none;
-  }
-
   .nav-menu{
     position:absolute;
     top:100%;
@@ -381,7 +377,7 @@ form textarea {
     width:100%;
     background:white;
     padding:20px 0;
-    display:none;
+    display:none; /* ✅ ONLY hidden on mobile */
   }
 
   .nav-menu.active{
@@ -393,6 +389,11 @@ form textarea {
     align-items:center;
     gap:20px;
   }
+
+  .nav-btn{
+    display:none;
+  }
+
 
   .footer-container{
     grid-template-columns:1fr;

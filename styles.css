@@ -269,6 +269,25 @@ form textarea {
   border-radius: 6px;
 }
 
+.contact-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+}
+
+.contact-options a {
+  flex: 1;
+  text-align: center;
+  min-width: 120px;
+}
+
+form button[type="submit"] {
+  margin-bottom: 10px;
+}
+
+
+
 /* ================= UPDATED FOOTER ================= */
 
 .footer{

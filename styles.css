@@ -358,13 +358,25 @@ form {
 
 .whatsapp {
   position: fixed;
-  bottom: 80px; /* 60px higher than default */
+  bottom: 20px;
   right: 20px;
   background: #25d366;
   color: white;
   padding: 16px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation: pulse 2s infinite;
+}
+
+
+.whatsapp-btn i {
+  margin-right: 8px;
+}
+
+.whatsapp i {
+  font-size: 22px;
 }
 
 @keyframes pulse {

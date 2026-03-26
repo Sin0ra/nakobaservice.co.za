@@ -274,7 +274,7 @@ form textarea {
 .footer{
   background: #0f2f24;
   color: #e5e7eb;
-  padding: 60px 20px 20px;
+  padding:80px 20px 20px; /* increase top padding */
 }
 
 .footer-container{
@@ -330,12 +330,16 @@ form textarea {
   font-size: 13px;
   color: #9ca3af;
 }
+form {
+  margin-bottom: 40px; /* prevents it from touching footer */
+}
+
 
 /* ================= WHATSAPP ================= */
 
 .whatsapp {
   position: fixed;
-  bottom: 20px;
+  bottom: 80px; /* 60px higher than default */
   right: 20px;
   background: #25d366;
   color: white;

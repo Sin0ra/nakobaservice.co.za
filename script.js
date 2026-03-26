@@ -77,14 +77,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
+   const phone = document.getElementById("phone").value;
+const message = document.getElementById("message").value;
 
       const subject = encodeURIComponent("New Contact Message");
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-      );
+const body = encodeURIComponent(
+  `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
+);
 
       window.location.href = `mailto:info@nakobaservices.co.za?subject=${subject}&body=${body}`;
+      alert("Opening your email app to send the message.");
     });
   }
 

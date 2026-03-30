@@ -65,6 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+
+  function showPopup(message) {
+  alert(message);
+}
   /* ============================= */
   /* CONTACT FORM (EMAIL HANDLER) */
   /* ============================= */

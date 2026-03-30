@@ -89,7 +89,13 @@ if (form) {
       `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
     );
 
-    window.location.href = `mailto:info@nakobaservices.co.za?subject=${subject}&body=${body}`;
+    // ✅ Reset form FIRST
+    form.reset();
+
+    // ✅ Small delay so user sees it cleared
+    setTimeout(() => {
+      window.location.href = `mailto:info@nakobaservices.co.za?subject=${subject}&body=${body}`;
+    }, 300);
   });
 }
 

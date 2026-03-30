@@ -79,33 +79,17 @@ if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const responseMsg = document.getElementById("form-response");
-    const button = form.querySelector("button");
+    const name = form.querySelector('[name="name"]').value;
+    const email = form.querySelector('[name="email"]').value;
+    const phone = form.querySelector('[name="phone"]').value;
+    const message = form.querySelector('[name="message"]').value;
 
-    const formData = new FormData(form);
+    const subject = encodeURIComponent("New Contact Message");
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
+    );
 
-    // 🔄 UI feedback
-    responseMsg.innerText = "Sending... ⏳";
-    responseMsg.style.color = "black";
-    button.disabled = true;
-
-    fetch("process.php", {
-      method: "POST",
-      body: formData
-    })
-    .then(res => res.text())
-    .then(data => {
-      responseMsg.innerText = data;
-      responseMsg.style.color = "green";
-      form.reset();
-    })
-    .catch(() => {
-      responseMsg.innerText = "Something went wrong ❌";
-      responseMsg.style.color = "red";
-    })
-    .finally(() => {
-      button.disabled = false;
-    });
+    window.location.href = `mailto:info@nakobaservices.co.za?subject=${subject}&body=${body}`;
   });
 }
 

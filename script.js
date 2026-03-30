@@ -69,26 +69,31 @@ document.addEventListener("DOMContentLoaded", function () {
   /* CONTACT FORM (EMAIL HANDLER) */
   /* ============================= */
 
-  const form = document.getElementById("contact-form");
+ const form = document.getElementById("contact-form");
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+if (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-   const phone = document.getElementById("phone").value;
-const message = document.getElementById("message").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
 
-      const subject = encodeURIComponent("New Contact Message");
-const body = encodeURIComponent(
-  `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
-);
+    const subject = encodeURIComponent("New Contact Message");
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
+    );
 
+    // 👉 SHOW POPUP FIRST
+    showPopup("📧 Opening your email app...");
+
+    // 👉 THEN OPEN EMAIL (slight delay for better UX)
+    setTimeout(() => {
       window.location.href = `mailto:info@nakobaservices.co.za?subject=${subject}&body=${body}`;
-      alert("Opening your email app to send the message.");
-    });
-  }
+    }, 1000);
+  });
+}
 
 
   /* ============================= */

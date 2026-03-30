@@ -1,25 +1,33 @@
 <?php
 
-$name = htmlspecialchars($_POST['name']);
-$email = htmlspecialchars($_POST['email']);
-$phone = htmlspecialchars($_POST['phone']);
-$message = htmlspecialchars($_POST['message']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$to = "info@nakobaservices.co.za";
-$subject = "New Contact Message";
+  $name = htmlspecialchars($_POST['name'] ?? '');
+  $email = htmlspecialchars($_POST['email'] ?? '');
+  $phone = htmlspecialchars($_POST['phone'] ?? '');
+  $message = htmlspecialchars($_POST['message'] ?? '');
 
-$body = "You have received a new message:\n\n";
-$body .= "Name: $name\n";
-$body .= "Email: $email\n";
-$body .= "Phone: $phone\n\n";
-$body .= "Message:\n$message";
+  $to = "info@nakobaservices.co.za";
+  $subject = "New Contact Message";
 
-$headers = "From: $email";
+  $body = "You have received a new message:\n\n";
+  $body .= "Name: $name\n";
+  $body .= "Email: $email\n";
+  $body .= "Phone: $phone\n\n";
+  $body .= "Message:\n$message";
 
-if(mail($to, $subject, $body, $headers)) {
-    echo "✅ Message sent successfully!";
+  // ⚠️ IMPORTANT FIX HERE
+  $headers = "From: Nakoba Services <info@nakobaservices.co.za>\r\n";
+  $headers .= "Reply-To: $email\r\n";
+
+  if (mail($to, $subject, $body, $headers)) {
+      echo "✅ Message sent successfully!";
+  } else {
+      echo "❌ Failed to send message.";
+  }
+
 } else {
-    echo "❌ Failed to send message.";
+  echo "Invalid request.";
 }
 
 ?>
